@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <title>2D Configurator</title>
+</head>
+
+<body class="bg-gray-200">
+  <div>
+    <div class="flex justify-evenly gap-3 lg:gap-0 w-full my-7 flex-wrap">
+      <div data-houseNo="1" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+        <img src="./CGI/House1/house1_full.jpg" alt="" />
+      </div>
+
+      <div data-houseNo="2" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+        <img src="./CGI/House2/house2_full.jpg" alt="" />
+      </div>
+
+      <div data-houseNo="3" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+        <img src="./CGI/House3/house3_full.jpg" alt="" />
+      </div>
+
+      <div data-houseNo="4" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+        <img src="./CGI/House4/house4_full.jpg" alt="" />
+      </div>
+
+      <div data-houseNo="5" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+        <img src="./CGI/House5/house5_full.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="flex w-full justify-center flex-wrap">
+      <div class="w-[800px]">
+        <div class="flex justify-between my-2">
+          <!-- <div class="font-semibold text-xl font-mono">The Lapworth</div>
+          <div class="font-semibold text-xl font-mono">
+            5 Bed House- 2070ft
+          </div> -->
+        </div>
+        <div class="relative image-container">
+
+
+          <div id="image-loader" class="absolute bg-slate-300 w-full h-full z-30 flex justify-center items-center " style="display: none;">
+
+            <div class="flex-col gap-4 w-full flex items-center justify-center">
+              <div
+                class="w-28 h-28 border-8 text-blue-400 text-4xl animate-spin border-gray-300 flex items-center justify-center border-t-blue-400 rounded-full">
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <img id="House_Image" src="" alt="" />
+
+
+
+          <!-- Roof /////////////////////////////// -->
+          <img id="Brick_Roof" class="absolute bottom-0 left-0 front-side roof transition-opacity " src="" alt=""  style="opacity: 0;"/>
+          <img id="Grey_Roof" class="absolute bottom-0 left-0 front-side roof transition-opacity " src="" alt=""  style="opacity: 0;"/>
+
+          <!-- Render ///////////////////////// -->
+          <img id="Brick_Render" class="absolute bottom-0 left-0 front-side transition-opacity renders " src=""
+            alt=""  style="opacity: 0;"/>
+          <img id="Brick_White_Render" class="absolute bottom-0 left-0 front-side transition-opacity renders "
+            src="" alt=""  style="opacity: 0;"/>
+          <img id="White_Render" class="absolute bottom-0 left-0 front-side transition-opacity renders " src=""
+            alt=""  style="opacity: 0;"/>
+
+          <!-- Window //////////////////////// -->
+          <img id="White_Window" class="absolute bottom-0 left-0 front-side window transition-opacity " src="" alt=""  style="opacity: 0;"/>
+          <img id="Grey_Window" class="absolute bottom-0 left-0 front-side window transition-opacity " src="" alt="" style="opacity: 0;" />
+
+          <!-- Door /////////////////// -->
+
+          <img id="White_Door" class="absolute bottom-0 left-0 front-side door transition-opacity " src="" alt=""  style="opacity: 0;"/>
+          <img id="Grey_Door" class="absolute bottom-0 left-0 front-side door transition-opacity " src="" alt=""  style="opacity: 0;"/>
+        </div>
+      </div>
+
+      <div>
+        <div class="mx-6">
+          <div class="flex flex-col text-center md:text-start gap-3 w-72">
+            <!-- <hr class="mt-12"> -->
+            <div class="w-full h-1 mt-10 bg-slate-900"></div>
+
+            <!-- Roof //////////////////// -->
+
+            <div class="font-bold text-xl font-serif text-gray-800">
+              Roof Tiles -
+            </div>
+            <div class="flex justify-center md:justify-start gap-5">
+              <button data-id="Brick_Roof"
+                class="color_roof w-14 h-14 rounded-full bg-[#533A32] roofBtn shadow-xl"></button>
+              <button data-id="Grey_Roof"
+                class="color_roof w-14 h-14 rounded-full bg-[#4D4439] roofBtn shadow-xl"></button>
+            </div>
+          </div>
+
+          <!-- Render ////////////////////////////////////////////////// -->
+
+          <div class="flex flex-col text-center md:text-start gap-3 w-72">
+            <!-- <hr class="mt-12"> -->
+            <div class="w-full h-1 mt-10 bg-slate-900"></div>
+
+            <div class="font-bold text-xl font-serif text-gray-800">
+              Brick/Render -
+            </div>
+            <div class="flex justify-center md:justify-start gap-5">
+              <button data-id="Brick_Render"
+                class="color_roof w-14 h-14 rounded-full bg-[#C37D46] renderBtn shadow-xl"></button>
+              <button data-id="Brick_White_Render"
+                class="color_roof w-14 h-14 rounded-full relative overflow-hidden renderBtn shadow-xl">
+                <div class="absolute inset-y-0 left-0 w-1/2 bg-[#C37D46]"></div>
+                <div class="absolute inset-y-0 right-0 w-1/2 bg-white"></div>
+              </button>
+              <button data-id="White_Render"
+                class="color_roof w-14 h-14 rounded-full bg-white renderBtn shadow-xl"></button>
+            </div>
+          </div>
+
+          <!-- Window //////////////////////////////////// -->
+
+          <div class="flex flex-col text-center md:text-start gap-3 w-72">
+            <!-- <hr class="mt-12"> -->
+            <div class="w-full h-1 mt-10 bg-slate-900"></div>
+
+            <div class="font-bold text-xl font-serif text-gray-800">
+              Windows/Fascias -
+            </div>
+            <div class="flex justify-center md:justify-start gap-5">
+              <button data-id="White_Window"
+                class="color_roof w-14 h-14 rounded-full bg-white windowBtn shadow-xl"></button>
+              <button data-id="Grey_Window"
+                class="color_roof w-14 h-14 rounded-full bg-[#4D4439] windowBtn shadow-xl"></button>
+            </div>
+          </div>
+
+          <!-- Door //////////////////////////// -->
+
+          <div class="flex flex-col text-center md:text-start gap-3 w-72">
+            <!-- <hr class="mt-12"> -->
+            <div class="w-full h-1 mt-10 bg-slate-900"></div>
+
+            <div class="font-bold text-xl font-serif text-gray-800">
+              Doors -
+            </div>
+            <div class="flex justify-center md:justify-start gap-5">
+              <button data-id="White_Door"
+                class="color_roof w-14 h-14 rounded-full bg-white doorBtn shadow-xl"></button>
+              <button data-id="Grey_Door"
+                class="color_roof w-14 h-14 rounded-full bg-[#4D4439] doorBtn shadow-xl"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <section class="text-gray-400 bg-gray-900 body-font relative my-5">
+      <div class="container px-5 py-8 mx-auto" bis_skin_checked="1">
+        <div id="download-conf"
+          class="flex justify-start items-center text-center cursor-pointer hover:text-red-700 transition-colors w-full mb-12"
+          bis_skin_checked="1">
+          <div>Download Configuration </div>
+          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h13M12 5l7 7-7 7" />
+            </svg><!-- Arrow SVG --></span>
+
+        </div>
+        <div class="lg:w-1/2 md:w-2/3 mx-auto" bis_skin_checked="1">
+
+          <div id="result" class=" text-center font-semibold text-green-600 text-2xl"></div>
+
+          <form method="POST" id="form" class="flex flex-wrap -m-2" bis_skin_checked="1">
+
+
+            <!-- HIDDEN INPUT -->
+            <input type="hidden" name="access_key" value="ccc0938d-d9e4-44d8-bfd9-b7a4d86b04cf">
+            <input name="House" id="house-input" type="hidden">
+            <input name="Roof" id="roof-input" type="hidden">
+            <input name="Render" id="render-input" type="hidden">
+            <input name="Window" id="window-input" type="hidden">
+            <input name="Door" id="door-input" type="hidden">
+
+
+
+            <div class="p-2 w-full" bis_skin_checked="1">
+              <div class="relative" bis_skin_checked="1">
+                <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                <input type="text" required id="name" name="name"
+                  class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+
+            <div class="p-2 w-1/2" bis_skin_checked="1">
+              <div class="relative" bis_skin_checked="1">
+                <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+                <input type="email" required id="email" name="email"
+                  class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+
+
+            <div class="p-2 w-1/2" bis_skin_checked="1">
+              <div class="relative" bis_skin_checked="1">
+                <label for="email" class="leading-7 text-sm text-gray-400">Phone</label>
+                <input type="number" required id="email" name="phone"
+                  class="w-full readonly bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+
+
+
+
+            <div class="p-2 w-full" bis_skin_checked="1">
+              <div class="relative" bis_skin_checked="1">
+                <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
+                <textarea id="message" required name="message"
+                  class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-indigo-500 focus:bg-gray-900 focus:ring-2 focus:ring-indigo-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              </div>
+            </div>
+
+            <div class="p-2 w-full" bis_skin_checked="1">
+              <button
+                class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+            </div>
+
+          </form>
+
+
+
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+  <script src="./main.js"></script>
+  <script type="module">
+    import { jsPDF } from "jspdf";
+
+
+
+    const houseImages = document.querySelectorAll(".house-image");
+
+    const houseImage = document.getElementById("House_Image");
+    // Doors
+    const whiteDoor = document.getElementById("White_Door");
+    const greyDoor = document.getElementById("Grey_Door");
+
+    // Renders
+    const brickRender = document.getElementById("Brick_Render");
+    const whiteRender = document.getElementById("White_Render");
+    const brickWhiteRender = document.getElementById("Brick_White_Render");
+
+    // Roofs
+    const brickRoof = document.getElementById("Brick_Roof");
+    const greyRoof = document.getElementById("Grey_Roof");
+
+    // Windows
+    const whiteWindow = document.getElementById("White_Window");
+    const greyWindow = document.getElementById("Grey_Window");
+
+    // Loading Spinner Image 
+    const imagerLoader = document.getElementById("image-loader")
+    // const renderBtns = document.querySelectorAll(".renderBtn")
+
+    houseImage.src = "./CGI/House1/house1_full.jpg";
+    whiteDoor.src = "./CGI/House1/door/white_door.png";
+    greyDoor.src = "./CGI/House1/door/grey_door.png";
+    brickRender.src = "./CGI/House1/render/brick_render.png";
+    whiteRender.src = "./CGI/House1/render/white_render.png";
+    brickWhiteRender.src =
+      "./CGI/House1/render/white_and_brick_render.png";
+    brickRoof.src = "./CGI/House1/roof/brick_roof.png";
+    greyRoof.src = "./CGI/House1/roof/grey_roof.png";
+    whiteWindow.src = "./CGI/House1/windows/white_window.png";
+    greyWindow.src = "./CGI/House1/windows/grey_window.png";
+
+    const images = document.querySelectorAll('.image-container img');
+    let currentHouse = 1;
+    for (const imageBtn of houseImages) {
+
+      imageBtn.addEventListener("click", (e) => {
+
+
+        houseImages.forEach((b) => {
+          b.style.border = "1px solid black";
+        });
+
+        imagerLoader.style.display = "flex"
+
+        imageBtn.style.border = "3.5px solid #FF6829"
+
+        currentHouse = imageBtn.getAttribute("data-houseNo");
+        houseImage.src = `./CGI/House${currentHouse}/house${currentHouse}_full.jpg`;
+        whiteDoor.src = `./CGI/House${currentHouse}/door/white_door.png`;
+        greyDoor.src = `./CGI/House${currentHouse}/door/grey_door.png`;
+        brickRender.src = `./CGI/House${currentHouse}/render/brick_render.png`;
+        whiteRender.src = `./CGI/House${currentHouse}/render/white_render.png`;
+        brickWhiteRender.src = `./CGI/House${currentHouse}/render/white_and_brick_render.png`;
+        brickRoof.src = `./CGI/House${currentHouse}/roof/brick_roof.png`;
+        greyRoof.src = `./CGI/House${currentHouse}/roof/grey_roof.png`;
+        whiteWindow.src = `./CGI/House${currentHouse}/windows/white_window.png`;
+        greyWindow.src = `./CGI/House${currentHouse}/windows/grey_window.png`;
+
+
+
+
+
+        let imagesLoaded = 0;
+
+        images.forEach(image => {
+          image.addEventListener('load', () => {
+            imagesLoaded++;
+            if (imagesLoaded === images.length) {
+              imagerLoader.style.display = "none"; // Hide the loader when all images are loaded
+            }
+          });
+        });
+
+
+
+      });
+    }
+
+    function handleButtonClick(btns, elements) {
+      const clickedIds = [];
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const btnId = btn.dataset.id;
+
+          // Remove border from all buttons
+          btns.forEach((b) => {
+            b.style.border = "none";
+          });
+
+          // Add border to clicked button
+          btn.style.border = "2.5px solid #FF6829";
+
+          elements.forEach((element) => {
+            if (btnId === element.id) {
+              element.style.opacity = "1";
+            } else {
+              element.style.opacity = "0";
+            }
+          });
+
+          clickedIds.push(btnId);
+        });
+      });
+
+      return clickedIds;
+    }
+
+
+    const renderBtns = document.querySelectorAll(".renderBtn");
+    const allRenders = document.querySelectorAll(".renders");
+    const renderBtnIds = handleButtonClick(renderBtns, allRenders);
+
+    const doorBtns = document.querySelectorAll(".doorBtn");
+    const allDoor = document.querySelectorAll(".door");
+    const doorBtnIds = handleButtonClick(doorBtns, allDoor);
+
+    const RoofBtns = document.querySelectorAll(".roofBtn");
+    const allRoof = document.querySelectorAll(".roof");
+    const roofBtnIds = handleButtonClick(RoofBtns, allRoof);
+
+    const WindowBtns = document.querySelectorAll(".windowBtn");
+    const allWindow = document.querySelectorAll(".window");
+    const windowBtnIds = handleButtonClick(WindowBtns, allWindow);
+
+    // Hidden Inputs /////////
+
+    const houseInput = document.getElementById("house-input")
+    const roofInput = document.getElementById("roof-input")
+    const renderInput = document.getElementById("render-input")
+    const windowInput = document.getElementById("window-input")
+    const doorInput = document.getElementById("door-input")
+
+
+
+
+
+    const doc = new jsPDF();
+
+
+    const downloadBtn = document.getElementById("download-conf");
+
+
+    downloadBtn.addEventListener("click", () => {
+
+      let selectedItems = {
+        currentHouse,
+        render: renderBtnIds[renderBtnIds.length - 1],
+        door: doorBtnIds[doorBtnIds.length - 1],
+        roof: roofBtnIds[roofBtnIds.length - 1],
+        window: windowBtnIds[windowBtnIds.length - 1],
+      };
+
+
+      // Check if any value in selectedItems is undefined
+      if (Object.values(selectedItems).some(value => value === undefined)) {
+
+
+
+        alert("Please select an option for each section of the configurator")
+
+
+      } else {
+
+
+        doc.text(`House No : ${currentHouse}`, 35, 180);
+        doc.text(`Roof Tiles : ${selectedItems.roof}`, 35, 190);
+        doc.text(`Render/Bricks : ${selectedItems.render}`, 35, 200);
+        doc.text(`Windows/Fascias : ${selectedItems.window}`, 35, 210);
+        doc.text(`Door : ${selectedItems.door}`, 35, 220);
+
+        const houseImg = houseImage.src
+        const doorImage = document.querySelector(`#${selectedItems.door}`).src
+        const renderImage = document.querySelector(`#${selectedItems.render}`).src
+        const windowImage = document.querySelector(`#${selectedItems.window}`).src
+        const roofImage = document.querySelector(`#${selectedItems.roof}`).src
+
+
+        // doc.setFontSize(window
+        doc.text("Here's The Summary", 35, 25);
+        doc.addImage(`${houseImg}`, "JPG", 15, 40, 180, 130);
+        doc.addImage(`${doorImage}`, "JPG", 15, 40, 180, 130);
+        doc.addImage(`${renderImage}`, "JPG", 15, 40, 180, 130);
+        doc.addImage(`${windowImage}`, "JPG", 15, 40, 180, 130);
+        doc.addImage(`${roofImage}`, "JPG", 15, 40, 180, 130);
+        doc.save("house_details.pdf");
+
+
+
+
+
+      }
+
+
+
+    });
+
+
+
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+
+      let selectedItems = {
+        currentHouse,
+        render: renderBtnIds[renderBtnIds.length - 1],
+        door: doorBtnIds[doorBtnIds.length - 1],
+        roof: roofBtnIds[roofBtnIds.length - 1],
+        window: windowBtnIds[windowBtnIds.length - 1],
+      };
+
+
+      houseInput.value = currentHouse
+      roofInput.value = selectedItems.roof
+      renderInput.value = selectedItems.render
+      windowInput.value = selectedItems.window
+      doorInput.value = selectedItems.door
+
+      // Check if any value in selectedItems is undefined
+      if (Object.values(selectedItems).some(value => value === undefined)) {
+
+        alert("Please select an option for each section of the configurator")
+
+
+      } else {
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        result.innerHTML = "Please wait..."
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              result.innerHTML = "Form submitted successfully";
+            } else {
+              console.log(response);
+              result.innerHTML = json.message;
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            result.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            form.reset();
+            setTimeout(() => {
+              result.style.display = "none";
+            }, 3000);
+          });
+      }
+
+
+
+
+    });
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
