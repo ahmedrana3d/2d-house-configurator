@@ -12,23 +12,23 @@
 <body class="bg-gray-200">
   <div>
     <div class="flex justify-evenly gap-3 lg:gap-0 w-full my-7 flex-wrap">
-      <div data-houseNo="1" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+      <div data-houseNo="1" data-name="The Calder" data-details="4 Bed House -2058sqft" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
         <img src="./CGI/House1/house1_full.jpg" alt="" />
       </div>
 
-      <div data-houseNo="2" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+      <div data-houseNo="2" data-name="The Lapworth" data-details="5 Bed House- 2070sqft" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
         <img src="./CGI/House2/house2_full.jpg" alt="" />
       </div>
 
-      <div data-houseNo="3" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+      <div data-houseNo="3" data-name="The Abberley" data-details="3 Bed Bangalow- 1104sqft" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
         <img src="./CGI/House3/house3_full.jpg" alt="" />
       </div>
 
-      <div data-houseNo="4" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+      <div data-houseNo="4" data-name="The Hagley" data-details="5 Bed House- 2338ft" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
         <img src="./CGI/House4/house4_full.jpg" alt="" />
       </div>
 
-      <div data-houseNo="5" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
+      <div data-houseNo="5" data-name="The Faringdon" data-details="3 Bed House- 1567ft" class="w-40 md:w-56 lg:w-64 cursor-pointer border border-black house-image">
         <img src="./CGI/House5/house5_full.jpg" alt="" />
       </div>
     </div>
@@ -36,10 +36,10 @@
     <div class="flex w-full justify-center flex-wrap">
       <div class="w-[900px] 2xl:w-[1200px]" >
         <div class="flex justify-between my-2">
-          <!-- <div class="font-semibold text-xl font-mono">The Lapworth</div>
-          <div class="font-semibold text-xl font-mono">
-            5 Bed House- 2070ft
-          </div> -->
+          <div class="font-semibold text-xl font-mono" id="house-name">The Calder</div>
+          <div class="font-semibold text-xl font-mono" id="house-detail">
+            4 Bed House -2058sqft
+          </div>
         </div>
         <div class="relative image-container">
 
@@ -185,7 +185,7 @@
 
 
             <!-- HIDDEN INPUT -->
-            <input type="hidden" name="access_key" value="220d8dfd-241d-4694-a982-7fc9bf0ff5da">
+            <input type="hidden" name="access_key" value="ccc0938d-d9e4-44d8-bfd9-b7a4d86b04cf">
             <input name="House" id="house-input" type="hidden">
             <input name="Roof" id="roof-input" type="hidden">
             <input name="Render" id="render-input" type="hidden">
@@ -276,6 +276,12 @@
     const imagerLoader = document.getElementById("image-loader")
     // const renderBtns = document.querySelectorAll(".renderBtn")
 
+// House Details //////////////////
+const houseName = document.getElementById("house-name")
+const houseDetail = document.getElementById("house-detail")
+
+
+
     houseImage.src = "./CGI/House1/house1_full.jpg";
     whiteDoor.src = "./CGI/House1/door/white_door.png";
     greyDoor.src = "./CGI/House1/door/grey_door.png";
@@ -316,7 +322,8 @@
         greyWindow.src = `./CGI/House${currentHouse}/windows/grey_window.png`;
 
 
-
+houseName.innerText = `${imageBtn.dataset.name}`
+houseDetail.innerText = `${imageBtn.dataset.details}`
 
 
         let imagesLoaded = 0;
@@ -421,7 +428,7 @@
 
       } else {
 
-
+        doc.setFont("helvetica", "bold");
         doc.text(`House No : ${currentHouse}`, 35, 180);
         doc.text(`Roof Tiles : ${selectedItems.roof}`, 35, 190);
         doc.text(`Render/Bricks : ${selectedItems.render}`, 35, 200);
