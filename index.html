@@ -493,11 +493,7 @@ if (currentHouse >= 1 && currentHouse <= houseDetails.length) {
 
         // doc.setFontSize(window
       
-        doc.addImage(`${houseImg}`, "JPG", 0, 1.5, 210, 130);
-        doc.addImage(`${doorImage}`, "JPG", 0, 1.5, 210, 130);
-        doc.addImage(`${renderImage}`, "JPG", 0, 1.5, 210, 130);
-        doc.addImage(`${windowImage}`, "JPG", 0, 1.5, 210, 130);
-        doc.addImage(`${roofImage}`, "JPG", 0, 1.5, 210, 130);
+ 
 
 
         // Filled red square
@@ -521,7 +517,11 @@ doc.setFontSize(18)
 doc.setTextColor("gray");
 doc.text(houseDetail, 75, 145);
 
-
+doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 130);
+        doc.addImage(`${doorImage}`, "JPG", 0, 0.2, 210, 130);
+        doc.addImage(`${renderImage}`, "JPG", 0, 0.2, 210, 130);
+        doc.addImage(`${windowImage}`, "JPG", 0, 0.2, 210, 130);
+        doc.addImage(`${roofImage}`, "JPG", 0, 0.2, 210, 130);
   
 
         doc.save("house_details.pdf");
