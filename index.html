@@ -167,16 +167,7 @@
 
     <section class="text-gray-400 bg-gray-900 body-font relative my-5">
       <div class="container px-5 py-8 mx-auto" bis_skin_checked="1">
-        <!-- <div id="download-conf"
-          class="flex justify-start items-center text-center cursor-pointer hover:text-red-700 transition-colors w-full mb-12"
-          bis_skin_checked="1">
-          <div>Download Configuration </div>
-          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h13M12 5l7 7-7 7" />
-            </svg></span>
 
-        </div> -->
         <div class="lg:w-1/2 md:w-2/3 mx-auto" bis_skin_checked="1">
 
           <div id="result" class=" text-center font-semibold text-green-600 text-2xl"></div>
@@ -427,87 +418,7 @@ details : "3 Bed House"
     const doc = new jsPDF();
 
 
-//     const downloadBtn = document.getElementById("download-conf");
 
-
-//     downloadBtn.addEventListener("click", () => {
-
-//       let selectedItems = {
-//         currentHouse,
-//         render: renderBtnIds[renderBtnIds.length - 1],
-//         door: doorBtnIds[doorBtnIds.length - 1],
-//         roof: roofBtnIds[roofBtnIds.length - 1],
-//         window: windowBtnIds[windowBtnIds.length - 1],
-//       };
-//       // doc.text(`House No : ${currentHouse}`, 35, 180);
-//       //   doc.text(`Roof Tiles : ${selectedItems.roof}`, 35, 190);
-//       //   doc.text(`Render/Bricks : ${selectedItems.render}`, 35, 200);
-//       //   doc.text(`Windows/Fascias : ${selectedItems.window}`, 35, 210);
-//       //   doc.text(`Door : ${selectedItems.door}`, 35, 220);
-
-
-
-
-// let houseName;
-// let houseDetail;
-
-// if (currentHouse >= 1 && currentHouse <= houseDetails.length) {
-//   let house = houseDetails[currentHouse - 1]; 
-//    houseName = house.name;
-//    houseDetail = house.details;
-// } else {
-//   console.log("Invalid house number");
-// }
-
-
-//         const houseImg = houseImage.src
-//         const doorImage = document.querySelector(`#${selectedItems.door}`).src
-//         const renderImage = document.querySelector(`#${selectedItems.render}`).src
-//         const windowImage = document.querySelector(`#${selectedItems.window}`).src
-//         const roofImage = document.querySelector(`#${selectedItems.roof}`).src
-
-
-//         // doc.setFontSize(window
-      
- 
-
-
-//         // Filled red square
-// doc.setDrawColor(0);
-// doc.setFillColor(23,31,57);
-// doc.rect(0, 120, 260, 90, "F");
-
-
-// doc.addImage("/pdf/pdf-footer.png", "JPG", 0, 190.5, 210, 110);
-
-// doc.addImage("/pdf/aelogo.png", "JPG", 155, 169, 45, 10);
-
-// // doc.setFont("helvetica", "bold");
-
-
-// doc.setFontSize(27);
-// doc.setTextColor("white");
-// doc.text(houseName, 10, 175);
-
-// doc.setFontSize(18)
-// doc.setTextColor("gray");
-// doc.text(houseDetail, 85, 175);
-
-// doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 150);
-//         doc.addImage(`${doorImage}`, "JPG", 0, 0.2, 210, 150);
-//         doc.addImage(`${renderImage}`, "JPG", 0, 0.2, 210, 150);
-//         doc.addImage(`${windowImage}`, "JPG", 0, 0.2, 210, 150);
-//         doc.addImage(`${roofImage}`, "JPG", 0, 0.2, 210, 150);
-  
-
-//         doc.save("house_details.pdf");
-
-
-
-
-
-
-//     });
 
 
 
@@ -594,10 +505,6 @@ if (currentHouse >= 1 && currentHouse <= houseDetails.length) {
         const roofImage = document.querySelector(`#${selectedItems.roof}`).src
 
 
-        // doc.setFontSize(window
-      
- 
-
 
 
         // Filled red square
@@ -611,6 +518,19 @@ doc.addImage("/pdf/pdf-footer.png", "JPG", 0, 190.5, 210, 110);
 doc.addImage("/pdf/aelogo.png", "JPG", 155, 169, 45, 10);
 
 // doc.setFont("helvetica", "bold");
+doc.setDrawColor(255, 255, 255); // draw red lines
+doc.setLineWidth(1);
+doc.line(140, 150, 140, 190);
+
+
+
+doc.setDrawColor(255, 255, 255); // draw red lines
+doc.setLineWidth(1);
+doc.line(140, 150, 140, 190);
+
+doc.setLineWidth(1);
+doc.line(73, 150, 73, 190);
+
 
 
 doc.setFontSize(27);
@@ -631,10 +551,6 @@ doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 150);
         doc.save("house_details.pdf");
 
 
-
-
-
-      
 
 
               result.innerHTML = "Form submitted successfully";
