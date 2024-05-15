@@ -427,15 +427,87 @@ details : "3 Bed House"
     const doc = new jsPDF();
 
 
-    // const downloadBtn = document.getElementById("download-conf");
+//     const downloadBtn = document.getElementById("download-conf");
 
 
-    // downloadBtn.addEventListener("click", () => {
+//     downloadBtn.addEventListener("click", () => {
 
-   
+//       let selectedItems = {
+//         currentHouse,
+//         render: renderBtnIds[renderBtnIds.length - 1],
+//         door: doorBtnIds[doorBtnIds.length - 1],
+//         roof: roofBtnIds[roofBtnIds.length - 1],
+//         window: windowBtnIds[windowBtnIds.length - 1],
+//       };
+//       // doc.text(`House No : ${currentHouse}`, 35, 180);
+//       //   doc.text(`Roof Tiles : ${selectedItems.roof}`, 35, 190);
+//       //   doc.text(`Render/Bricks : ${selectedItems.render}`, 35, 200);
+//       //   doc.text(`Windows/Fascias : ${selectedItems.window}`, 35, 210);
+//       //   doc.text(`Door : ${selectedItems.door}`, 35, 220);
 
 
-    // });
+
+
+// let houseName;
+// let houseDetail;
+
+// if (currentHouse >= 1 && currentHouse <= houseDetails.length) {
+//   let house = houseDetails[currentHouse - 1]; 
+//    houseName = house.name;
+//    houseDetail = house.details;
+// } else {
+//   console.log("Invalid house number");
+// }
+
+
+//         const houseImg = houseImage.src
+//         const doorImage = document.querySelector(`#${selectedItems.door}`).src
+//         const renderImage = document.querySelector(`#${selectedItems.render}`).src
+//         const windowImage = document.querySelector(`#${selectedItems.window}`).src
+//         const roofImage = document.querySelector(`#${selectedItems.roof}`).src
+
+
+//         // doc.setFontSize(window
+      
+ 
+
+
+//         // Filled red square
+// doc.setDrawColor(0);
+// doc.setFillColor(23,31,57);
+// doc.rect(0, 120, 260, 90, "F");
+
+
+// doc.addImage("/pdf/pdf-footer.png", "JPG", 0, 190.5, 210, 110);
+
+// doc.addImage("/pdf/aelogo.png", "JPG", 155, 169, 45, 10);
+
+// // doc.setFont("helvetica", "bold");
+
+
+// doc.setFontSize(27);
+// doc.setTextColor("white");
+// doc.text(houseName, 10, 175);
+
+// doc.setFontSize(18)
+// doc.setTextColor("gray");
+// doc.text(houseDetail, 85, 175);
+
+// doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 150);
+//         doc.addImage(`${doorImage}`, "JPG", 0, 0.2, 210, 150);
+//         doc.addImage(`${renderImage}`, "JPG", 0, 0.2, 210, 150);
+//         doc.addImage(`${windowImage}`, "JPG", 0, 0.2, 210, 150);
+//         doc.addImage(`${roofImage}`, "JPG", 0, 0.2, 210, 150);
+  
+
+//         doc.save("house_details.pdf");
+
+
+
+
+
+
+//     });
 
 
 
@@ -527,32 +599,33 @@ if (currentHouse >= 1 && currentHouse <= houseDetails.length) {
  
 
 
+
         // Filled red square
-doc.setDrawColor(0);
+        doc.setDrawColor(0);
 doc.setFillColor(23,31,57);
 doc.rect(0, 120, 260, 90, "F");
 
 
-doc.addImage("/pdf/pdf-footer.png", "JPG", 0, 170.5, 210, 130);
+doc.addImage("/pdf/pdf-footer.png", "JPG", 0, 190.5, 210, 110);
 
-doc.addImage("/pdf/aelogo.png", "JPG", 155, 137, 45, 10);
+doc.addImage("/pdf/aelogo.png", "JPG", 155, 169, 45, 10);
 
 // doc.setFont("helvetica", "bold");
 
 
 doc.setFontSize(27);
 doc.setTextColor("white");
-doc.text(houseName, 10, 145);
+doc.text(houseName, 10, 175);
 
 doc.setFontSize(18)
 doc.setTextColor("gray");
-doc.text(houseDetail, 75, 145);
+doc.text(houseDetail, 85, 175);
 
-doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 130);
-        doc.addImage(`${doorImage}`, "JPG", 0, 0.2, 210, 130);
-        doc.addImage(`${renderImage}`, "JPG", 0, 0.2, 210, 130);
-        doc.addImage(`${windowImage}`, "JPG", 0, 0.2, 210, 130);
-        doc.addImage(`${roofImage}`, "JPG", 0, 0.2, 210, 130);
+doc.addImage(`${houseImg}`, "JPG", 0, 0.2, 210, 150);
+        doc.addImage(`${doorImage}`, "JPG", 0, 0.2, 210, 150);
+        doc.addImage(`${renderImage}`, "JPG", 0, 0.2, 210, 150);
+        doc.addImage(`${windowImage}`, "JPG", 0, 0.2, 210, 150);
+        doc.addImage(`${roofImage}`, "JPG", 0, 0.2, 210, 150);
   
 
         doc.save("house_details.pdf");
